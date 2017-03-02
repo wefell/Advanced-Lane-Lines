@@ -45,13 +45,13 @@ Individual images are undistorted by passing the image, camera matrix, and disto
 
 ####2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
 
-My thresholding functions are found in video_gen.py (lines 12-72). The application and  combination of thresholding techniques is found in lines 155-164. I used a combination of gradient thresholds in the x orientation, gradient thresholds in the y orientation, and color thresholds using the S channel in HLS colorspace and the V channel in HSV colorspace. Through a fine-tuning process of trial and error, I was able to genetate a binary image like the one below:
+My thresholding functions are found in video_gen.py (lines 12-86). The application and  combination of thresholding techniques is found in lines 169-178. I used a combination of gradient thresholds in the x orientation, gradient thresholds in the y orientation, and color thresholds using the S channel in HLS colorspace and the V channel in HSV colorspace. After hearing suggestions from a reviewer I also isolated the yellows and the whites using HLS and HSV thresholding. This seemed key to cleaning up noise and making both lines stand out. Through a fine-tuning process of trial and error, I was able to genetate a binary image like the one below:
 
 ![alt text](./examples/binary.jpg "Binary Image")
 
 ####3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
 
-Source and destination points were chose by manually identfying four points on an image with straight lanes (video_gen.py lines 168-169):
+Source and destination points were chose by manually identfying four points on an image with straight lanes (video_gen.py lines 182-183):
 
 
 | Source        | Destination   | 
@@ -67,13 +67,13 @@ The perspective transform was performed by massing the source and destination po
 
 ####4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
 
-I first found window centers using find__window_centroids() in lines 86- 141. This function convolved the windows on vertical slices of the images. Sanity checks are done on the window centers, which are then averaged with with the last 11 frames. If window centroids are found, I draw windows around the centroids and add them to the transformed image (lines 185-220). I then fit a second order polynomial to the window centers on both the left and right lanes, and draw the lanes onto the unwarped image (lines 222-255).
+I first found window centers using find__window_centroids() in lines 100-155. This function convolved the windows on vertical slices of the images. Sanity checks are done on the window centers, which are then averaged with with the last 11 frames. If window centroids are found, I draw windows around the centroids and add them to the transformed image (lines 199-234). I then fit a second order polynomial to the window centers on both the left and right lanes, and draw the lanes onto the unwarped image (lines 236-272).
 
 ![alt text](./examples/windows.jpg "Sliding Windows")
 
 ####5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
-The radius of the curvature was calcuated in lines 260-268 using the equation Udacity provided, after converting pixels to meters in both the x and y orientation. The position of the vehicle was calculated in lines 270-275, assuming the camera is in the center of the vehicle. 
+The radius of the curvature was calcuated in lines 274-282 using the equation Udacity provided, after converting pixels to meters in both the x and y orientation. The position of the vehicle was calculated in lines 284-289, assuming the camera is in the center of the vehicle. 
 
 ####6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
 
