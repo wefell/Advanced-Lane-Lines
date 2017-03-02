@@ -67,7 +67,7 @@ The perspective transform was performed by massing the source and destination po
 
 ####4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
 
-I first found window centers using find__window_centroids() in lines 86- 141. This function convolved the windows on vertical slices of the images. Sanity checks are done on the window centers, which are then averaged with with the last 15 frames. If window centroids are found, I draw windows around the centroids and add them to the transformed image (lines 185-220). I then fit a second order polynomial to the window centers on both the left and right lanes, and draw the lanes onto an unwarped image (lines 222-255).
+I first found window centers using find__window_centroids() in lines 86- 141. This function convolved the windows on vertical slices of the images. Sanity checks are done on the window centers, which are then averaged with with the last 11 frames. If window centroids are found, I draw windows around the centroids and add them to the transformed image (lines 185-220). I then fit a second order polynomial to the window centers on both the left and right lanes, and draw the lanes onto an unwarped image (lines 222-255).
 
 ![alt text](./examples/windows.jpg "Sliding Windows")
 
