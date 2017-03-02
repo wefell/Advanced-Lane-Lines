@@ -89,7 +89,7 @@ See result below:
 
 The below picture is a link to the youtube video
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/KtwqLI2NxCE/0.jpg)](https://youtu.be/KtwqLI2NxCE)
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/KWjAjHVKRr0/0.jpg)](https://youtu.be/KWjAjHVKRr0)
 
 ---
 
