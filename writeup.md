@@ -30,7 +30,7 @@ The camera calibration is performed in calibrate_camera.py. I start by preparing
 
 I then find image points using cv2.findChessboardCorners(). The image points are the x,y coordinates of the chessboard corners in the distorted image. The image points are then used to draw the corner points on the distorted image. This is done for each calibration image, with the object points and image points being collected for each image. 
 
-The collected object points and image points are fed into cv2.calibrateCamera to return the camera matrix, distortion coefficients, rotation vector, and translation vector. See below for example of undistortion:
+The collected object points and image points are fed into cv2.calibrateCamera to return the camera matrix, distortion coefficients, rotation vector, and translation vector. See below for example of finding corners:
 
 ![alt text](./examples/calibration3.jpg "Original")
 ![alt text](./examples/corners_found13.jpg "Draw Corners")
