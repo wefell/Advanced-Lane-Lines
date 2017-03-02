@@ -41,13 +41,13 @@ The collected object points and image points are fed into cv2.calibrateCamera to
 
 Individual images are undistorted by passing the image, camera matrix, and distortion coefficents to cv2.undistort(). See below for undistorted test image:
 
-![alt text][./examples/undistorted_test.jpg "Undistorted"]
+![alt text](./examples/undistorted_test.jpg "Undistorted")
 
 ####2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
 
 My thresholding functions are found in video_gen.py (lines 12-72). The application and  combination of thresholding techniques is found in lines 155-164. I used a combination of gradient thresholds in the x orientation, gradient thresholds in the y orientation, and color thresholds using the S channel in HLS colorspace and the V channel in HSV colorspace. Through a fine-tuning process of trial and error, I was able to genetate a binary image like the one below:
 
-![alt text][./examples/binary.jpg "Binary Image"]
+![alt text](./examples/binary.jpg "Binary Image")
 
 ####3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
 
@@ -63,13 +63,13 @@ Source and destination points were chose by manually identfying four points on a
 
 I verified that my perspective transform was working as expected by verfiying that the top and bottom of the lanes are approximately the same distance apart in the transformed images.
 
-![alt text][./examples/warped.jpg "Transformed Image"]
+![alt text](./examples/warped.jpg "Transformed Image")
 
 ####4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
 
 I first found window centers using find__window_centroids() in lines 86- 141. This function convolved the windows on vertical slices of the images. Sanity checks are done on the window centers, which are then averaged with with the last 15 frames. If window centroids are found, I draw windows around the centroids and add them to the transformed image (lines 185-220). I then fit a second order polynomial to the window centers on both the left and right lanes, and draw the lanes onto an unwarped image (lines 222-255).
 
-![alt text][./examples/windows.jpg "Sliding Windows"]
+![alt text](./examples/windows.jpg "Sliding Windows")
 
 ####5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
@@ -79,7 +79,7 @@ The radius of the curvature was calcuated in lines 260-268 using the equation Ud
 
 I implemented this step in lines # through # in my code in `yet_another_file.py` in the function `map_lane()`.  Here is an example of my result on a test image:
 
-![alt text][./examples/result.jpg "Resulting Image"]
+![alt text](./examples/result.jpg "Resulting Image")
 
 ---
 
