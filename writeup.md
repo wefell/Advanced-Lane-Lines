@@ -61,7 +61,7 @@ Source and destination points were chose by manually identfying four points on a
 | 1106, 720     | 960, 720      |
 | 688, 450      | 960, 0        |
 
-I verified that my perspective transform was working as expected by verfiying that the top and bottom of the lanes are approximately the same distance apart in the transformed images.
+The perspective transform was performed by massing the source and destination points to cv2.getPerspectiveTransform(), which was then passed to cv2.warpPerspective() along with the binary image. I verified that my perspective transform was working as expected by verfiying that the top and bottom of the lanes are approximately the same distance apart in the transformed images.
 
 ![alt text](./examples/warped.jpg "Transformed Image")
 
