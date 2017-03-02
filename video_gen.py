@@ -284,8 +284,8 @@ def process_image(img):
     return result
 
 
-Output_video = 'output2.mp4'
-Input_video = 'challenge_video.mp4'
+Output_video = 'output1.mp4'
+Input_video = 'project_video.mp4'
 
 clip1 = VideoFileClip(Input_video, audio=False)
 video_clip = clip1.fl_image(process_image)
