@@ -32,7 +32,7 @@ I then find image points using cv2.findChessboardCorners(). The image points are
 
 The collected object points and image points are fed into cv2.calibrateCamera to return the camera matrix, distortion coefficients, rotation vector, and translation vector. See below for example of undistortion:
 
-![alt text][./examples/calibration3.jpg "Original"]
+![alt text](Advanced-Lane-Lines/examples/calibration3.jpg "Original")
 ![alt text][./examples/corners_found13.jpg "Draw Corners"]
 
 ###Pipeline (single images)
